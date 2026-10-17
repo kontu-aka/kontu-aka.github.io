@@ -1,0 +1,130 @@
+/* v0.14/v0.15: dedicated styles for the new "お問い合わせ" section. No existing CSS rules are modified; this file only adds new, scoped rules. */
+
+.contact-section {
+  padding-block:72px 80px;
+}
+
+.contact-grid {
+  grid-template-columns:1fr 1.3fr;
+  align-items:start;
+}
+
+.contact-form {
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+  padding:32px 32px 30px;
+}
+
+.contact-form-notice {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:12px;
+  line-height:1.7;
+  color:#92503F;
+  background:#F7EFE9;
+  border:1px solid #E7D6C8;
+  border-radius:6px;
+  padding:12px 14px;
+  margin-bottom:26px;
+}
+
+.contact-form-notice .status-dot {
+  flex-shrink:0;
+  margin-top:8px;
+  background:#9B5947;
+}
+
+.contact-error {
+  font-size:12px;
+  line-height:1.7;
+  color:#92503F;
+  background:#F7EFE9;
+  border:1px solid #E7D6C8;
+  border-radius:6px;
+  padding:12px 14px;
+  margin-bottom:26px;
+}
+
+.contact-success {
+  padding:8px 2px;
+}
+
+.contact-success-title {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:12px;
+}
+
+.contact-success-title .status-dot {
+  background:var(--lime);
+}
+
+.contact-success p+p {
+  margin-top:10px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+}
+
+.form-field+.form-field {
+  margin-top:20px;
+}
+
+.form-field label {
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width:100%;
+  font-family:inherit;
+  font-size:14px;
+  color:var(--ink);
+  background:#F5F7F8;
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:12px 14px;
+  line-height:1.6;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color:#8B9AA3;
+}
+
+.form-field textarea {
+  resize:vertical;
+  min-height:110px;
+}
+
+.contact-submit {
+  margin-top:28px;
+  font-family:inherit;
+}
+
+.contact-submit:disabled {
+  background:#E3E8EA;
+  color:#8B9AA3;
+  cursor:not-allowed;
+  transform:none;
+}
+
+@media(max-width:680px) {
+  .contact-grid {
+    grid-template-columns:1fr;
+  }
+  .contact-form {
+    padding:26px 22px 24px;
+  }
+}

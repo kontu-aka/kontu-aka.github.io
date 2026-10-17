@@ -1,0 +1,15 @@
+node_modules/
+source-photos/
+.next/
+next-env.d.ts
+out/
+*.tsbuildinfo
+.env*
+!.env.example
+*.log
+
+local-review/
+
+/review/
+*.zip
+
