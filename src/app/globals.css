@@ -799,8 +799,10 @@ details[open] .detail-toggle::after {
   display:inline-flex;
   align-items:center;
   justify-content:space-between;
+  align-self:flex-start;
   gap:22px;
   min-height:44px;
+  width:max-content;
   max-width:100%;
   margin-top:18px;
   padding:12px 16px;
@@ -816,11 +818,6 @@ details[open] .detail-toggle::after {
 .ctx-trial-link:hover {
   background:#476A79;
   color:#FBFCFD;
-}
-
-.ctx-trial-link:focus-visible {
-  outline:3px solid #9B5947;
-  outline-offset:3px;
 }
 
 .ctx-trial-link .arrow {

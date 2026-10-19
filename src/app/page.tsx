@@ -3,6 +3,7 @@ import ContactForm from "./ContactForm";
 
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/+$/, "");
 const repository = "https://github.com/kontu-aka/gov-it-procurement-watch";
+const ctxStarterKitRepository = "https://github.com/kontu-aka/ctx-handoff-starter-kit";
 
 function Arrow() {
   return <span className="arrow" aria-hidden="true">↗</span>;
@@ -51,7 +52,7 @@ export default function Home() {
                   </div>
                   <div className="showcase-caption"><span className="showcase-name">政府調達データ分析ツール</span><span className="showcase-arrow" aria-hidden="true"><Arrow /></span></div>
                 </a>
-                <a href="#project-ctx" className="showcase-card showcase-ctx" aria-label="CTX HANDOFFの紹介へ（無料版公開中）">
+                <a href="#project-ctx" className="showcase-card showcase-ctx" aria-label="CTX HANDOFFの紹介へ（無料公開版：公開中）">
                   <div className="showcase-card-top"><span>02 / AI · HANDOFF</span></div>
                   <span className="showcase-ctx-name">CTX<span>HANDOFF<span className="showcase-period">.</span></span></span>
                   <span className="showcase-planes" aria-hidden="true"><i /><i /><i /></span>
@@ -104,16 +105,16 @@ export default function Home() {
                     <span className="cover-caption">CONTEXT / WORK / NEXT</span>
                   </div>
                   <div className="secondary-info">
-                    <div className="project-status"><span className="status-dot" />無料版公開中<span className="project-type">AI / HANDOFF</span></div>
+                    <div className="project-status"><span className="status-dot" />無料公開版：公開中<span className="project-type">AI / HANDOFF</span></div>
                     <h3 id="ctx-title">CTX HANDOFF</h3>
                     <p className="ctx-category">AIとの作業を、次のチャットへ引き継ぐ。</p>
                     <p>決定事項・保留事項・次の作業をまとめ、別のAIや新しいチャットで作業を再開しやすくする仕組みです。</p>
-                    <p>複数のAIを使う方や、長いチャットでの説明の繰り返しに困っている方におすすめ。無料版はインストール不要のテンプレートです。</p>
+                    <p>複数のAIを使う方や、長いチャットでの説明の繰り返しに困っている方におすすめ。無料公開版はインストール不要のテンプレートです。</p>
                     <div className="secondary-bottom">
                       <ul className="tags" aria-label="分類"><li>無料テンプレート</li><li>引き継ぎ</li><li>複数AI</li></ul>
-                      <span className="coming-soon">シリーズ開発中</span>
+                      <span className="coming-soon">シリーズの他ツールは開発中</span>
                     </div>
-                    <ExternalLink href="https://github.com/kontu-aka/ctx-handoff-starter-kit" className="ctx-trial-link">無料版を使ってみる（GitHub） <Arrow /></ExternalLink>
+                    <ExternalLink href={ctxStarterKitRepository} className="ctx-trial-link">無料公開版を使ってみる（GitHub） <Arrow /></ExternalLink>
                   </div>
                 </article>
 
