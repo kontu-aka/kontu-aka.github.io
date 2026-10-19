@@ -51,7 +51,7 @@ export default function Home() {
                   </div>
                   <div className="showcase-caption"><span className="showcase-name">政府調達データ分析ツール</span><span className="showcase-arrow" aria-hidden="true"><Arrow /></span></div>
                 </a>
-                <a href="#project-ctx" className="showcase-card showcase-ctx" aria-label="CTX HANDOFFの紹介へ（開発中）">
+                <a href="#project-ctx" className="showcase-card showcase-ctx" aria-label="CTX HANDOFFの紹介へ（無料版公開中）">
                   <div className="showcase-card-top"><span>02 / AI · HANDOFF</span></div>
                   <span className="showcase-ctx-name">CTX<span>HANDOFF<span className="showcase-period">.</span></span></span>
                   <span className="showcase-planes" aria-hidden="true"><i /><i /><i /></span>
@@ -103,7 +103,18 @@ export default function Home() {
                     <span className="ctx-structure" aria-hidden="true"><i /><i /><i /></span>
                     <span className="cover-caption">CONTEXT / WORK / NEXT</span>
                   </div>
-                  <div className="secondary-info"><div className="project-status developing"><span className="status-dot" />開発中<span className="project-type">AI / HANDOFF</span></div><h3 id="ctx-title">CTX HANDOFF</h3><p className="ctx-category">AI開発の引き継ぎ・作業状態管理</p><p>複数のAIやチャットをまたぐ開発で、進捗・決定事項・次の作業を整理し、安全に引き継ぐための仕組みを開発しています。</p><div className="secondary-bottom"><ul className="tags" aria-label="分類"><li>AI開発</li><li>引き継ぎ</li><li>作業状態管理</li></ul><span className="coming-soon">非公開</span></div></div>
+                  <div className="secondary-info">
+                    <div className="project-status"><span className="status-dot" />無料版公開中<span className="project-type">AI / HANDOFF</span></div>
+                    <h3 id="ctx-title">CTX HANDOFF</h3>
+                    <p className="ctx-category">AIとの作業を、次のチャットへ引き継ぐ。</p>
+                    <p>決定事項・保留事項・次の作業をまとめ、別のAIや新しいチャットで作業を再開しやすくする仕組みです。</p>
+                    <p>複数のAIを使う方や、長いチャットでの説明の繰り返しに困っている方におすすめ。無料版はインストール不要のテンプレートです。</p>
+                    <div className="secondary-bottom">
+                      <ul className="tags" aria-label="分類"><li>無料テンプレート</li><li>引き継ぎ</li><li>複数AI</li></ul>
+                      <span className="coming-soon">シリーズ開発中</span>
+                    </div>
+                    <ExternalLink href="https://github.com/kontu-aka/ctx-handoff-starter-kit" className="ctx-trial-link">無料版を使ってみる（GitHub） <Arrow /></ExternalLink>
+                  </div>
                 </article>
 
                 <article className="secondary-project" id="project-support" aria-labelledby="support-title">

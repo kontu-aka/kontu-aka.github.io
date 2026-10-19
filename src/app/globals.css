@@ -795,6 +795,39 @@ details[open] .detail-toggle::after {
   color:#61717C
 }
 
+.ctx-trial-link {
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+  min-height:44px;
+  max-width:100%;
+  margin-top:18px;
+  padding:12px 16px;
+  border-radius:4px;
+  background:#2D3F4A;
+  color:#FBFCFD;
+  font-size:12px;
+  font-weight:600;
+  text-decoration:none;
+  transition:background-color .2s ease;
+}
+
+.ctx-trial-link:hover {
+  background:#476A79;
+  color:#FBFCFD;
+}
+
+.ctx-trial-link:focus-visible {
+  outline:3px solid #9B5947;
+  outline-offset:3px;
+}
+
+.ctx-trial-link .arrow {
+  font-size:18px;
+  line-height:1;
+}
+
 .work-note {
   font-size:9px;
   color:#61717C;
