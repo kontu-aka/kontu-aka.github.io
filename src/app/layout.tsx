@@ -5,6 +5,8 @@ import "./readability.css";
 import "./showcase.css";
 import "./section-colors.css";
 import "./contact.css";
+import "./studio-branding.css";
+import "./ctxent-cta.css";
 
 export const metadata: Metadata = {
   title: "kontu-aka — アイデアを、使えるかたちに。",

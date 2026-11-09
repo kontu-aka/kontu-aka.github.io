@@ -13,7 +13,7 @@
   gap:16px;
   padding-inline:12px 14px;
   font-family:var(--mono);
-  font-size:12px;
+  font-size:13px;
   line-height:1.8;
   letter-spacing:.06em;
   color:#35434E;
@@ -28,7 +28,7 @@
 
 .showcase-stack {
   position:relative;
-  height:610px;
+  height:706px;
   margin-top:18px;
 }
 
@@ -64,10 +64,10 @@
 .showcase-procurement {
   --tilt:-3deg;
   --hover-tilt:-1deg;
-  z-index:3;
+  z-index:4;
   width:86%;
   left:12%;
-  top:280px;
+  top:376px;
   overflow:hidden;
 }
 
@@ -80,7 +80,7 @@
 .showcase-screen .window-line {
   height:28px;
   padding-inline:12px;
-  font-size:11px;
+  font-size:12px;
   gap:12px;
 }
 
@@ -136,7 +136,7 @@
   position:relative;
   z-index:1;
   font-family:var(--mono);
-  font-size:12px;
+  font-size:13px;
   line-height:1.8;
   color:#35434E;
 }
@@ -146,11 +146,11 @@
 .showcase-ctx {
   --tilt:-7deg;
   --hover-tilt:-2deg;
-  z-index:2;
+  z-index:3;
   width:76%;
   height:214px;
   left:1%;
-  top:120px;
+  top:216px;
   padding:16px 22px;
   background:#E8EFF3;
   overflow:hidden;
@@ -211,14 +211,38 @@
 .showcase-support {
   --tilt:6deg;
   --hover-tilt:2deg;
-  z-index:1;
+  z-index:2;
   width:73%;
   height:188px;
   left:22%;
-  top:4px;
+  top:100px;
   padding:16px 22px;
   background:#F4F6F5;
   overflow:hidden;
+}
+
+.showcase-ctxent {
+  --tilt:-10deg;
+  --hover-tilt:-4deg;
+  z-index:1;
+  width:58%;
+  height:120px;
+  left:30%;
+  top:0;
+  padding:13px 18px;
+  background:#E3ECE7;
+  overflow:hidden;
+}
+
+.showcase-ctxent-name {
+  display:block;
+  position:relative;
+  z-index:1;
+  margin-top:8px;
+  font-size:17px;
+  font-weight:700;
+  line-height:1.5;
+  letter-spacing:.005em;
 }
 
 .showcase-support-name {
@@ -263,7 +287,7 @@
     left:0;
   }
   .showcase-card-top {
-    font-size:11px;
+    font-size:12px;
     gap:6px;
   }
   .showcase-support-name {
@@ -287,24 +311,29 @@
     margin-top:0;
   }
   .showcase-stack {
-    height:640px;
+    height:736px;
+  }
+  .showcase-ctxent {
+    width:66%;
+    left:18%;
+    top:0;
   }
   .showcase-support {
     --tilt:5deg;
     width:82%;
     left:13%;
-    top:6px;
+    top:102px;
   }
   .showcase-ctx {
     --tilt:-5deg;
     width:84%;
     left:2%;
-    top:140px;
+    top:236px;
   }
   .showcase-procurement {
     width:90%;
     left:7%;
-    top:282px;
+    top:378px;
   }
   .showcase-screen img {
     aspect-ratio:2.4;
@@ -328,11 +357,11 @@
     align-items:flex-start;
     flex-wrap:wrap;
     gap:4px 8px;
-    font-size:12px;
+    font-size:13px;
   }
   .showcase-card-top>span:first-child {
     width:100%;
-    font-size:12px;
+    font-size:13px;
     letter-spacing:0;
   }
   .showcase-support {
@@ -372,7 +401,7 @@
   }
   .showcase-screen .window-line {
     height:26px;
-    font-size:10px;
+    font-size:11px;
     gap:8px;
     padding-inline:10px;
   }
@@ -384,6 +413,9 @@
   }
   .showcase-name {
     font-size:16px;
+  }
+  .showcase-ctxent-name {
+    font-size:15px;
   }
 }
 

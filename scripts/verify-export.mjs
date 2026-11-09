@@ -46,7 +46,10 @@ if (formTags.length === 1) {
 }
 
 if (/ctx-handoff(?:\.git|["/])|keiba-ai-demo|park-b\.webp|localhost:|127\.0\.0\.1:/i.test(html)) errors.push('Unexpected private/comparison/local URL in page');
-for (const required of ['.nojekyll', '404.html', 'images/park-a.webp', 'images/procurement-overview.jpg']) {
+// The intro-video button must never ship without the file it plays, so the
+// video and its poster are required export members like the photos are.
+for (const required of ['.nojekyll', '404.html', 'images/park-a.webp', 'images/procurement-overview.jpg',
+  'video/ctx-enterprise-sales-r5-r2-ginga.mp4', 'video/ctx-enterprise-sales-r5-poster.jpg']) {
   try { await stat(path.join(root, required)); } catch { errors.push(`Missing ${required}`); }
 }
 async function walk(dir) {

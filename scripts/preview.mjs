@@ -18,6 +18,7 @@ const contentTypes = {
   ".jpg": "image/jpeg",
   ".webp": "image/webp",
   ".ico": "image/x-icon",
+  ".mp4": "video/mp4",
 };
 
 await stat(path.join(root, "index.html")).catch(() => {

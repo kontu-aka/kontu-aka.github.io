@@ -11,22 +11,22 @@ body {
 }
 
 .brand-caption {
-  font-size:11px;
+  font-size:12px;
   color:var(--body-text);
   letter-spacing:.09em;
 }
 
 .header nav>a {
-  font-size:15px;
+  font-size:16px;
 }
 
 .header nav>a>span:not(.arrow):not(.sr-only) {
-  font-size:12px;
+  font-size:13px;
   color:var(--muted);
 }
 
 .eyebrow,.hero-eyebrow,.mono {
-  font-size:12px;
+  font-size:13px;
   line-height:1.7;
   letter-spacing:.08em;
 }
@@ -54,13 +54,13 @@ body {
 }
 
 .button {
-  font-size:15px;
+  font-size:16px;
   line-height:1.7;
-  padding:17px 25px;
+  padding:17px 26px;
 }
 
 .hero-keywords {
-  font-size:13px;
+  font-size:14px;
   line-height:1.8;
   flex-wrap:wrap;
 }
@@ -87,7 +87,7 @@ body {
 }
 
 .feature-topline {
-  font-size:12px;
+  font-size:13px;
   color:var(--body-text);
   letter-spacing:.06em;
   gap:12px;
@@ -107,7 +107,7 @@ body {
 
 .window-line {
   height:36px;
-  font-size:11px;
+  font-size:12px;
   color:var(--body-text);
   border-bottom:1px solid #CBD7DE;
 }
@@ -132,7 +132,7 @@ body {
 .image-note {
   margin-top:0;
   padding:0 14px 12px;
-  font-size:12px;
+  font-size:13px;
   line-height:1.8;
   color:var(--body-text);
   background:#FBFCFD;
@@ -143,7 +143,7 @@ body {
 
 .intro-bottom {
   isolation:isolate;
-  font-size:13px;
+  font-size:14px;
   color:var(--body-text);
   border-top-color:#BACBD4;
 }
@@ -161,7 +161,7 @@ body {
 }
 
 .intro-bottom>.mono {
-  font-size:12px;
+  font-size:13px;
 }
 
 /* White project surfaces sit clearly inside the blue-grey section. */
@@ -175,7 +175,7 @@ body {
 }
 
 .section-aside {
-  font-size:13px;
+  font-size:14px;
 }
 
 .works-heading h2 {
@@ -195,7 +195,7 @@ body {
 }
 
 .project-status {
-  font-size:13px;
+  font-size:14px;
   line-height:1.7;
   flex-wrap:wrap;
   color:var(--body-text);
@@ -206,18 +206,18 @@ body {
 }
 
 .project-type,.secondary-info .project-type {
-  font-size:12px;
+  font-size:13px;
   color:var(--muted);
   letter-spacing:.03em;
 }
 
 .project-en {
-  font-size:13px;
+  font-size:14px;
   overflow-wrap:anywhere;
 }
 
 .project-name {
-  font-size:14px;
+  font-size:15px;
 }
 
 .project-description,.secondary-info>p,.detail-body,.about-text,
@@ -235,24 +235,24 @@ body {
 }
 
 .tags li {
-  font-size:12px;
+  font-size:13px;
   color:var(--body-text);
   border-color:#C1D0D9;
   padding:5px 9px;
 }
 
 .project-cta,.project-detail summary {
-  font-size:15px;
+  font-size:16px;
   line-height:1.8;
   color:var(--body-text);
 }
 
 .detail-body strong,.detail-body .detail-note {
-  font-size:14px;
+  font-size:15px;
 }
 
 .visual-index,.visual-caption,.cover-caption,.progress-label {
-  font-size:12px;
+  font-size:13px;
   line-height:1.7;
   color:var(--body-text);
 }
@@ -297,7 +297,7 @@ body {
 }
 
 .secondary-info>.ctx-category {
-  font-size:14px;
+  font-size:15px;
   font-weight:600;
   line-height:1.8;
   color:var(--muted);
@@ -312,7 +312,7 @@ body {
 }
 
 .coming-soon,.work-note {
-  font-size:13px;
+  font-size:14px;
   line-height:1.8;
   color:var(--muted);
 }
@@ -341,7 +341,7 @@ body {
 }
 
 .capabilities p {
-  font-size:16px;
+  font-size:17px;
   line-height:1.9;
   color:#D4DFE5;
 }
@@ -351,7 +351,7 @@ body {
 }
 
 .github-handle,.footer-inner p,.back-top,.photo-attribution {
-  font-size:13px;
+  font-size:14px;
   line-height:1.8;
   color:var(--muted);
 }
@@ -424,7 +424,7 @@ body {
     padding-block:20px 16px;
   }
   .brand-caption {
-    font-size:11px;
+    font-size:12px;
     letter-spacing:.07em;
   }
   .header nav {
@@ -433,10 +433,10 @@ body {
     gap:18px;
   }
   .header nav>a,.header nav .nav-github {
-    font-size:14px;
+    font-size:15px;
   }
   .header nav>a>span:not(.arrow):not(.sr-only) {
-    font-size:12px;
+    font-size:13px;
   }
   .hero {
     padding-block:188px 46px;
@@ -446,32 +446,32 @@ body {
     font-size:clamp(32px,9.7vw,40px);
   }
   .hero-eyebrow {
-    font-size:12px;
+    font-size:13px;
     letter-spacing:.035em;
   }
   .hero-description {
     margin-top:24px;
   }
   .button {
-    font-size:15px;
+    font-size:16px;
     padding:16px 22px;
     gap:32px;
   }
   .hero-keywords {
-    font-size:12px;
+    font-size:13px;
     margin-top:24px;
   }
   .hero-keywords span+span::before {
     margin-inline:9px;
   }
   .feature-topline {
-    font-size:11px;
+    font-size:12px;
     letter-spacing:.02em;
     gap:6px;
   }
   .window-line {
     height:32px;
-    font-size:10px;
+    font-size:11px;
   }
   .feature-bottomline {
     font-size:15px;
@@ -479,7 +479,7 @@ body {
     gap:10px;
   }
   .image-note {
-    font-size:12px;
+    font-size:13px;
     padding:0 12px 10px;
   }
   .works-heading {
@@ -505,16 +505,16 @@ body {
     font-size:28px;
   }
   .project-type,.secondary-info .project-type {
-    font-size:12px;
+    font-size:13px;
   }
   .project-detail summary {
-    font-size:14px;
+    font-size:15px;
   }
   .visual-index,.visual-caption,.cover-caption,.progress-label {
-    font-size:12px;
+    font-size:13px;
   }
   .secondary-info>.ctx-category {
-    font-size:14px;
+    font-size:15px;
   }
   .secondary-bottom .tags {
     flex:1 1 100%;
@@ -538,10 +538,10 @@ body {
     flex-wrap:wrap;
   }
   .footer-inner p {
-    font-size:12px;
+    font-size:13px;
     letter-spacing:.04em;
   }
   .photo-attribution {
-    font-size:12px;
+    font-size:13px;
   }
 }

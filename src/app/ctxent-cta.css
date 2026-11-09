@@ -1,0 +1,262 @@
+/* 企業向けCTX card actions (2026-11-09, R2-R4): the free-assessment CTA and
+   the intro video both live in the right column - CTA above the description on
+   phones / under the tags on desktop, video player at the foot of the column.
+   Colours come from the existing palette: --dark for the media chrome, and
+   the hero button's blue-grey (#476A79, R5.1) for the primary CTA. */
+
+/* ---- intro video (R4: a real 16:9 player at the foot of the right column,
+   poster + big play mark until the viewer starts it) ---- */
+.ctxent-video {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+/* R3: stated above the player (and read out with the play control via
+   aria-describedby) because the video still shows the R5 screens and a
+   paid-only feature. */
+.ctxent-video-caution {
+  margin: 0;
+  padding: 13px 15px;
+  border: 1px solid #CAD9E1;
+  border-radius: 6px;
+  background: #F2F6F8;
+  font-size: 14px;
+  line-height: 1.85;
+  color: #35434E;
+}
+
+.ctxent-video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 2px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+}
+
+.ctxent-video-element {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ctxent-video-element[hidden] {
+  display: none;
+}
+
+.ctxent-video-element:focus-visible {
+  outline: 3px solid #9B5947;
+  outline-offset: -3px;
+}
+
+/* The poster + play mark the viewer clicks. Removed once playback starts, so
+   the native controls (pause, volume, fullscreen) own the frame from then on. */
+.ctxent-video-cover {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.ctxent-video-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ctxent-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  padding-left: 6px;
+  border-radius: 50%;
+  background: #27323CD9;
+  color: #fff;
+  font-size: 27px;
+  line-height: 1;
+  transition: background .2s;
+}
+
+.ctxent-video-cover:hover .ctxent-video-play,
+.ctxent-video-cover:focus-visible .ctxent-video-play {
+  background: var(--dark);
+}
+
+.ctxent-video-cover:focus-visible {
+  outline: 3px solid #9B5947;
+  outline-offset: -3px;
+}
+
+.ctxent-video-cover-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 11px 14px;
+  background: #27323CE0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  text-align: left;
+}
+
+.ctxent-video-note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #4B5E6B;
+}
+
+/* R4: the video moved into the right column, so that column is now the taller
+   one. The left panel kept align-self:start and left a bare white strip under
+   it; stretching the panel to the card height and centring the gallery inside
+   it keeps the tinted block whole and the spare space even, top and bottom.
+   Only above the single-column breakpoint - stacked, the panel hugs its
+   content as before. */
+@media (min-width: 801px) {
+  #project-ctxent .ctxent-visual {
+    align-self: stretch;
+    justify-content: center;
+  }
+  /* The index label keeps to one line now that the caption is a size larger;
+     only the caption wraps. */
+  .ctxent-visual .support-screens-foot>span:first-child {
+    white-space: nowrap;
+  }
+}
+
+/* ---- free assessment CTA (right column) ---- */
+.ctxent-cta-primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 58px;
+  margin-top: 24px;
+  padding: 16px 22px;
+  border-radius: 6px;
+  background: #476A79;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  transition: background .2s;
+}
+
+.ctxent-cta-primary:hover {
+  background: #355664;
+  color: #fff;
+}
+
+.ctxent-cta-primary .arrow {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.ctxent-cta-note {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* The follow-up contact link keeps its understated look but needs a little
+   more room now that a filled button sits above it. */
+.project-info .ctxent-cta-group + .project-cta-secondary {
+  margin-top: 12px;
+}
+
+/* R5: on desktop the CTA sits in the left panel, under the gallery and its
+   caption; the flex column already supplies the gap, so the button drops its
+   own top margin there. */
+.ctxent-visual .ctxent-cta-primary {
+  margin-top: 2px;
+}
+
+/* Desktop renders the CTA in the left panel under the gallery; phones render
+   it right after the project name in the text column. Exactly one copy is
+   displayed at a time, so reading order and Tab order stay in step. */
+.ctxent-cta-mobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .ctxent-video {
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+  .ctxent-cta-mobile {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .ctxent-cta-desktop {
+    display: none;
+  }
+  .project-info .tags + .project-cta-secondary {
+    margin-top: 18px;
+  }
+  .ctxent-cta-primary {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Side by side, these two leave the caption a few characters wide; stacked,
+     each gets the full panel width. */
+  .ctxent-visual .support-screens-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .ctxent-video {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+  .ctxent-video-caution {
+    padding: 12px 13px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .ctxent-video-play {
+    width: 60px;
+    height: 60px;
+    font-size: 21px;
+  }
+  .ctxent-video-cover-label {
+    padding: 9px 11px;
+    font-size: 13px;
+  }
+  .ctxent-cta-primary {
+    min-height: 56px;
+    margin-top: 20px;
+    padding: 15px 16px;
+    font-size: 16px;
+  }
+  .ctxent-video-note,
+  .ctxent-cta-note {
+    font-size: 12px;
+  }
+}

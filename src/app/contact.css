@@ -20,7 +20,7 @@
   display:flex;
   align-items:flex-start;
   gap:10px;
-  font-size:12px;
+  font-size:13px;
   line-height:1.7;
   color:#92503F;
   background:#F7EFE9;
@@ -68,7 +68,7 @@
 .contact-success p+p {
   margin-top:10px;
   color:var(--muted);
-  font-size:14px;
+  font-size:15px;
   line-height:1.9;
 }
 
@@ -78,7 +78,7 @@
 
 .form-field label {
   display:block;
-  font-size:12px;
+  font-size:13px;
   font-weight:700;
   color:var(--ink);
   margin-bottom:8px;
@@ -89,7 +89,7 @@
 .form-field textarea {
   width:100%;
   font-family:inherit;
-  font-size:14px;
+  font-size:16px;
   color:var(--ink);
   background:#F5F7F8;
   border:1px solid var(--line);
@@ -126,5 +126,111 @@
   }
   .contact-form {
     padding:26px 22px 24px;
+  }
+}
+
+/* R5: a second way into the form, at the foot of the ABOUT text column -
+   on PC it lands to the lower right of the studio logo, never over it.
+   Light on the dark ABOUT panel for contrast; the page already honours
+   prefers-reduced-motion by switching html{scroll-behavior} to auto. */
+.about-contact-link {
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  align-self:flex-start;
+  min-height:52px;
+  margin-top:30px;
+  padding:14px 24px;
+  border-radius:6px;
+  background:#FBFCFD;
+  color:#27323C;
+  font-size:16px;
+  font-weight:700;
+  line-height:1.6;
+  letter-spacing:.02em;
+  transition:background-color .2s,color .2s;
+}
+
+.about-contact-link:hover {
+  background:#E3ECF1;
+  color:#27323C;
+}
+
+.about-contact-link:focus-visible {
+  outline:3px solid #FBFCFD;
+  outline-offset:4px;
+}
+
+.about-contact-link>span {
+  font-size:19px;
+  line-height:1;
+}
+
+@media(max-width:520px) {
+  .about-contact-link {
+    width:100%;
+    justify-content:space-between;
+    min-height:54px;
+    margin-top:26px;
+    padding:14px 18px;
+    font-size:15px;
+  }
+}
+
+/* R5.1: a quieter second route out of the hero - first-time visitors take the
+   works button above it, returning ones go straight to the existing form.
+   Stacked in a column so both buttons share one left edge. */
+.hero-actions {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:14px;
+  margin-top:32px;
+}
+
+.hero-actions .button-lime {
+  margin-top:0;
+}
+
+.button-quiet {
+  gap:24px;
+  min-height:48px;
+  padding:13px 24px;
+  border:1px solid #7E99A6;
+  background:#FBFCFD;
+  color:#2D3F4A;
+  font-size:15px;
+  box-shadow:none;
+}
+
+.button-quiet:hover {
+  background:#EAF1F4;
+  border-color:#476A79;
+  color:#27323C;
+}
+
+.button-quiet:focus-visible {
+  outline:3px solid #476A79;
+  outline-offset:4px;
+}
+
+.button-quiet>span {
+  font-size:17px;
+  font-weight:400;
+}
+
+@media(max-width:520px) {
+  .hero-actions {
+    align-self:stretch;
+    gap:12px;
+    margin-top:28px;
+  }
+  .button-quiet {
+    justify-content:space-between;
+    width:100%;
+    gap:16px;
+    min-height:50px;
+    padding:13px 18px;
+    font-size:14px;
   }
 }

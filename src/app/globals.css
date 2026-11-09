@@ -710,6 +710,276 @@ details[open] .detail-toggle::after {
   background-size:52px 52px
 }
 
+/* .secondary-project .project-visual sets height/display at (0,2,0)
+   specificity; this triple-class selector unconditionally outranks it (and
+   its media-query height overrides) regardless of source order, so the
+   taller screenshot layout below gets a flex formatting context and a
+   height a real gallery can live in instead of the old 300px wordmark box. */
+.secondary-project .project-visual.support-visual {
+  display:flex;
+  flex-direction:column;
+  padding:16px 16px 0;
+  height:420px
+}
+
+@media(max-width:520px) {
+  .secondary-project .project-visual.support-visual {
+    height:380px
+  }
+}
+
+.support-screens {
+  flex:1;
+  display:flex;
+  gap:10px;
+  min-height:0;
+  padding-bottom:10px
+}
+
+.support-screen {
+  flex:1;
+  min-width:0;
+  min-height:0;
+  position:relative;
+  display:block;
+  overflow:hidden;
+  padding:0;
+  border-radius:4px 4px 0 0;
+  border:1px solid #CAD9E1;
+  border-bottom:none;
+  background:#fff;
+  box-shadow:0 8px 18px #324E5E1F;
+  cursor:pointer;
+  appearance:none;
+  transition:transform .25s,box-shadow .25s
+}
+
+.support-screen:hover,.support-screen:focus-visible {
+  transform:translateY(-3px);
+  box-shadow:0 12px 26px #324E5E2E
+}
+
+.support-screen img {
+  display:block;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center top
+}
+
+.support-screen-hint {
+  position:absolute;
+  left:50%;
+  bottom:8px;
+  transform:translateX(-50%);
+  z-index:1;
+  padding:4px 10px;
+  border-radius:12px;
+  background:#27323CE0;
+  color:#fff;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.04em;
+  opacity:0;
+  transition:opacity .2s
+}
+
+.support-screen:hover .support-screen-hint,.support-screen:focus-visible .support-screen-hint {
+  opacity:1
+}
+
+.support-screens-foot {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:9px 2px 11px;
+  font-family:var(--mono);
+  font-size:13px;
+  letter-spacing:.04em;
+  color:#5E6A70
+}
+
+.screenshot-lightbox {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:#1B2227D6
+}
+
+.screenshot-lightbox-panel {
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  max-width:1000px;
+  height:100%;
+  max-height:860px;
+  border-radius:10px;
+  overflow:hidden;
+  background:#F4F6F5;
+  box-shadow:0 30px 70px #10161AA0
+}
+
+.screenshot-lightbox-bar {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 16px;
+  background:#27323C;
+  color:#F4F6F5
+}
+
+.screenshot-lightbox-label {
+  font-size:15px;
+  font-weight:600
+}
+
+.screenshot-lightbox-controls {
+  display:flex;
+  flex-wrap:wrap;
+  max-width:100%;
+  align-items:center;
+  gap:6px
+}
+
+.screenshot-lightbox-controls button {
+  min-width:34px;
+  height:34px;
+  padding:0 10px;
+  border:1px solid #4C5B66;
+  border-radius:6px;
+  background:#323F4A;
+  color:#F4F6F5;
+  font-size:15px;
+  line-height:1;
+  cursor:pointer
+}
+
+.screenshot-lightbox-controls button:hover:not(:disabled) {
+  background:#3E4E5A
+}
+
+.screenshot-lightbox-controls button:disabled {
+  opacity:.4;
+  cursor:default
+}
+
+.screenshot-lightbox-zoom,.screenshot-lightbox-count {
+  min-width:44px;
+  text-align:center;
+  font-family:var(--mono);
+  font-size:13px;
+  color:#C7D2D8
+}
+
+.screenshot-lightbox-close {
+  font-size:20px !important;
+  font-weight:700
+}
+
+.screenshot-lightbox-body {
+  flex:1;
+  min-height:0;
+  overflow:auto;
+  background:#DCE3E6;
+  padding:20px;
+  display:block
+}
+
+/* Center fitting images; oversized images start inside the scrollable area. */
+.screenshot-lightbox-body img {
+  display:block;
+  height:auto;
+  margin-inline:auto;
+  border-radius:4px;
+  box-shadow:0 8px 24px #20323E33;
+  background:#fff
+}
+
+/* 04 - Enterprise CTX featured card: same flex/height treatment as
+   .support-visual so the shared ScreenshotGallery (.support-screens /
+   .support-screen) gets a definite height to flex against. Not nested
+   inside .secondary-project, so no display:block specificity fight here. */
+/* Sized purely by its own content (3 screenshots at their real aspect
+   ratios, no crop/stretch) - not by .project-info's height. align-self:start
+   stops the grid default stretch, so no forced height or min-height can
+   leave blank space under a shorter column; the two columns just start
+   at the same top edge and each ends where its own content ends. */
+.ctxent-visual {
+  display:flex;
+  flex-direction:column;
+  align-self:start;
+  gap:10px;
+  padding:20px;
+  background:#EAF0ED
+}
+
+/* Two columns, not three: at three-across each thumbnail's width was so
+   narrow relative to its own aspect ratio that object-fit:contain left most
+   of the cell blank. Two-up lets every image render near its real size -
+   content fills the box instead of empty space filling it. The 3rd image
+   (odd one out) naturally wraps to its own row at the same width. */
+.ctxent-visual .support-screens {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  align-items:start;
+  flex:none;
+  gap:10px;
+  padding-bottom:0;
+}
+
+.ctxent-visual .support-screen {
+  min-width:0;
+  position:static;
+  border-radius:4px;
+  border-bottom:1px solid #CAD9E1;
+}
+
+.ctxent-visual .support-screen img {
+  position:static;
+  inset:auto;
+  height:auto;
+  object-fit:initial;
+  object-position:initial;
+}
+
+/* 01 is a wide crop of the start screen, 02-05 share one taller ratio.
+   Letting 01 span both columns turns five screens into hero + 2x2 instead
+   of 2+2+1, so no empty grid cell is left for the card to pad around. */
+.ctxent-visual .support-screen:first-child {
+  grid-column:1 / -1;
+}
+
+.project-info .project-note {
+  font-size:13px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-top:10px
+}
+
+.project-cta-secondary {
+  display:inline-flex;
+  align-items:center;
+  font-size:14px;
+  line-height:1.8;
+  color:var(--muted);
+  text-decoration:underline;
+  text-underline-offset:3px;
+  margin-top:14px
+}
+
+.project-cta-secondary:hover {
+  color:#9B5947
+}
+
 .support-wordmark {
   position:absolute;
   top:94px;
@@ -748,6 +1018,13 @@ details[open] .detail-toggle::after {
   letter-spacing:-.035em;
   line-height:1.6;
   margin-top:16px
+}
+
+.secondary-info p.support-ai-note {
+  font-size:13px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-top:8px
 }
 
 .secondary-info>p {
@@ -809,7 +1086,7 @@ details[open] .detail-toggle::after {
   border-radius:4px;
   background:#2D3F4A;
   color:#FBFCFD;
-  font-size:12px;
+  font-size:13px;
   font-weight:600;
   text-decoration:none;
   transition:background-color .2s ease;
