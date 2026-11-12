@@ -49,7 +49,7 @@ if (/ctx-handoff(?:\.git|["/])|keiba-ai-demo|park-b\.webp|localhost:|127\.0\.0\.
 // The intro-video button must never ship without the file it plays, so the
 // video and its poster are required export members like the photos are.
 for (const required of ['.nojekyll', '404.html', 'images/park-a.webp', 'images/procurement-overview.jpg',
-  'video/ctx-enterprise-sales-r5-r2-ginga.mp4', 'video/ctx-enterprise-sales-r5-poster.jpg']) {
+  'video/ctx-enterprise-r6-integrated-review-20261112.mp4', 'video/ctx-enterprise-r6-integrated-20261112-poster.jpg']) {
   try { await stat(path.join(root, required)); } catch { errors.push(`Missing ${required}`); }
 }
 async function walk(dir) {

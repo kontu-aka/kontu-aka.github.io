@@ -3,8 +3,8 @@
 import { useRef, useState } from "react";
 
 /** Byte-identical copy of the video published on the 企業向けCTX site. */
-const VIDEO_SRC = "/video/ctx-enterprise-sales-r5-r2-ginga.mp4";
-const POSTER_SRC = "/video/ctx-enterprise-sales-r5-poster.jpg";
+const VIDEO_SRC = "/video/ctx-enterprise-r6-integrated-review-20261112.mp4";
+const POSTER_SRC = "/video/ctx-enterprise-r6-integrated-20261112-poster.jpg";
 const PLAYER_ID = "ctxent-intro-video";
 const CAUTION_ID = "ctxent-intro-video-caution";
 
@@ -31,9 +31,9 @@ export function IntroVideo({ basePath }: Props) {
   return (
     <div className="ctxent-video">
       {/* Stated above the player, and read out with the play control, because
-          the video still shows the R5 screens and a paid-only feature. */}
+          the R6 video introduces the free 01-05 flow and the paid 06 feature. */}
       <p className="ctxent-video-caution" id={CAUTION_ID}>
-        この動画は以前の画面を使用しています。動画内で紹介する「AI向け指示案」は有料版の機能です。無料版では診断と改善提案を確認できます。
+        このR6紹介動画は、無料版01〜05と有料版06の機能を紹介します。無料版では診断・改善提案・改善内容のまとめ、有料版06では共通ルール5件・基本指示9テーマの指示文の確認・コピー・保存ができます。実際のAI設定は変更しません。
       </p>
       <div className="ctxent-video-frame">
         <video
@@ -47,7 +47,7 @@ export function IntroVideo({ basePath }: Props) {
           width={1920}
           height={1080}
           hidden={!started}
-          aria-label="企業向けCTXの紹介動画（約57秒・音声と字幕付き）"
+          aria-label="企業向けCTXの紹介動画（約64秒・音声と字幕付き）"
         >
           <source src={`${basePath}${VIDEO_SRC}`} type="video/mp4" />
           お使いのブラウザでは動画を再生できません。
@@ -59,18 +59,18 @@ export function IntroVideo({ basePath }: Props) {
             onClick={start}
             aria-controls={PLAYER_ID}
             aria-describedby={CAUTION_ID}
-            aria-label="約1分の紹介動画を再生する（音声あり）"
+            aria-label="約64秒の紹介動画を再生する（音声あり）"
           >
             {/* Plain img: the poster is a fixed 16:9 cover, not a layout image. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`${basePath}${POSTER_SRC}`} width={1280} height={720} alt="" />
             <span className="ctxent-video-play" aria-hidden="true">▶</span>
-            <span className="ctxent-video-cover-label" aria-hidden="true">約1分の紹介動画を見る</span>
+            <span className="ctxent-video-cover-label" aria-hidden="true">約64秒の紹介動画を見る</span>
           </button>
         )}
       </div>
       <p className="ctxent-video-note">
-        音声があります。ページを開いただけでは再生されません（約57秒・字幕付き）。
+        音声があります。ページを開いただけでは再生されません（約64秒・字幕付き）。
       </p>
     </div>
   );
