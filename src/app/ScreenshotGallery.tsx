@@ -5,28 +5,57 @@ import { useEffect, useRef, useState } from "react";
 
 export interface GalleryScreen {
   src: string;
-  /** Natural pixel width/height of the file (captured at 2x device scale). */
+  /** Natural pixel width/height of the file. */
   width: number;
   height: number;
   alt: string;
   label: string;
+  /** Short line under the thumbnail. Omitted galleries render no caption. */
+  caption?: string;
+  /**
+   * Which band of a tall screenshot the thumbnail should show, as the
+   * vertical object-position (0 = the top of the file, 100 = the bottom).
+   * A full-page capture often has its point halfway down; without this the
+   * tile would show four near-identical headers. Omitted = the top.
+   */
+  focus?: number;
+  /**
+   * Device scale the file was captured at. Most screenshots here were taken
+   * at 2x, which is what the zoom steps below assume. A file captured at 1x
+   * says so, otherwise its "100%" would render at half the size it should.
+   */
+  density?: number;
 }
 
 interface Props {
   basePath: string;
   screens: GalleryScreen[];
+  /**
+   * Open the lightbox at "fit to width" instead of a fixed percentage, and
+   * offer that as a zoom step. Tall screenshots otherwise open wider than
+   * the panel and need a horizontal scroll before anything can be read.
+   * Opt-in, so the galleries that were sized for the percentage steps keep
+   * behaving exactly as before.
+   */
+  defaultFit?: boolean;
 }
 
-// The source screenshots were captured at device-scale-factor 2, so a CSS
-// width of naturalWidth/2 reproduces the size the app actually renders at in
-// a browser. 200% zoom (naturalWidth * 1.0) is a 1:1 physical-pixel mapping -
-// the sharpest the source supports - so the steps never upscale past it.
-const ZOOM_STEPS = [75, 100, 125, 150, 200];
-const DEFAULT_ZOOM_INDEX = 1;
+// 100% means "the size the app actually renders at in a browser": a file
+// captured at 2x is shown at naturalWidth/2, one captured at 1x at its own
+// width. 200% is then a 1:1 physical-pixel mapping for a 2x capture - the
+// sharpest its source supports.
+const ZOOM_STEPS = [75, 100, 125, 150, 200] as const;
+/** "fit" is a step like any other, so one index drives both modes. */
+const FIT = "fit" as const;
+type ZoomStep = typeof FIT | (typeof ZOOM_STEPS)[number];
+const DEFAULT_DENSITY = 2;
 
-export function ScreenshotGallery({ basePath, screens }: Props) {
+export function ScreenshotGallery({ basePath, screens, defaultFit = false }: Props) {
+  const zoomSteps: ZoomStep[] = defaultFit ? [FIT, ...ZOOM_STEPS] : [...ZOOM_STEPS];
+  // Without the fit step the default stays the 100% it has always been.
+  const defaultZoomIndex = defaultFit ? 0 : 1;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [zoomIndex, setZoomIndex] = useState(DEFAULT_ZOOM_INDEX);
+  const [zoomIndex, setZoomIndex] = useState(defaultZoomIndex);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -38,7 +67,7 @@ export function ScreenshotGallery({ basePath, screens }: Props) {
 
   useEffect(() => {
     if (openIndex === null) return;
-    setZoomIndex(DEFAULT_ZOOM_INDEX);
+    setZoomIndex(defaultZoomIndex);
     closeButtonRef.current?.focus();
 
     function onKey(event: KeyboardEvent) {
@@ -61,7 +90,7 @@ export function ScreenshotGallery({ basePath, screens }: Props) {
   }, [openIndex, screens.length]);
 
   const current = openIndex === null ? null : screens[openIndex];
-  const zoom = ZOOM_STEPS[zoomIndex];
+  const zoom = zoomSteps[zoomIndex];
 
   return (
     <>
@@ -77,8 +106,16 @@ export function ScreenshotGallery({ basePath, screens }: Props) {
             onClick={() => setOpenIndex(i)}
             aria-label={`${screen.alt}（クリックで拡大表示）`}
           >
-            <Image src={`${basePath}${screen.src}`} width={screen.width} height={screen.height} alt={screen.alt} unoptimized />
+            <Image
+              src={`${basePath}${screen.src}`}
+              width={screen.width}
+              height={screen.height}
+              alt={screen.alt}
+              style={screen.focus === undefined ? undefined : { objectPosition: `center ${screen.focus}%` }}
+              unoptimized
+            />
             <span className="support-screen-hint">拡大表示</span>
+            {screen.caption && <span className="support-screen-caption">{screen.caption}</span>}
           </button>
         ))}
       </div>
@@ -129,12 +166,12 @@ export function ScreenshotGallery({ basePath, screens }: Props) {
                   －
                 </button>
                 <span className="screenshot-lightbox-zoom" aria-live="polite">
-                  {zoom}%
+                  {zoom === FIT ? "幅に合わせる" : `${zoom}%`}
                 </span>
                 <button
                   type="button"
-                  onClick={() => setZoomIndex((z) => Math.min(z + 1, ZOOM_STEPS.length - 1))}
-                  disabled={zoomIndex === ZOOM_STEPS.length - 1}
+                  onClick={() => setZoomIndex((z) => Math.min(z + 1, zoomSteps.length - 1))}
+                  disabled={zoomIndex === zoomSteps.length - 1}
                   aria-label="拡大"
                 >
                   ＋
@@ -150,7 +187,15 @@ export function ScreenshotGallery({ basePath, screens }: Props) {
               <img
                 src={`${basePath}${current.src}`}
                 alt={current.alt}
-                style={{ width: `${Math.round((current.width * zoom) / 200)}px`, maxWidth: "none" }}
+                style={
+                  zoom === FIT
+                    ? // Fits the panel, so the only scrolling is vertical.
+                      { width: "100%", maxWidth: "100%" }
+                    : {
+                        width: `${Math.round((current.width * zoom) / (100 * (current.density ?? DEFAULT_DENSITY)))}px`,
+                        maxWidth: "none",
+                      }
+                }
               />
             </div>
           </div>

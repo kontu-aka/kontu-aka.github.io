@@ -6,31 +6,53 @@ import { IntroVideo } from "./IntroVideo";
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/+$/, "");
 const repository = "https://github.com/kontu-aka/gov-it-procurement-watch";
 const ctxStarterKitRepository = "https://github.com/kontu-aka/ctx-handoff-starter-kit";
+const supportRepository = "https://github.com/kontu-aka/ai-inquiry-triage";
 const ctxEnterpriseUrl = "https://kontu-aka.github.io/ctx-enterprise/";
 // R6 free edition routes on the hash: start / assessment / results / draft / review.
 const ctxEnterpriseStartUrl = `${ctxEnterpriseUrl}#start`;
 
+// Captured at 1x against the running app with a local LLM (架空の問い合わせ).
+// Byte-identical to docs/screenshots in the published repository.
 const supportScreens = [
   {
-    src: "/images/support-01-input.png",
-    width: 1536,
-    height: 1436,
-    alt: "①問い合わせ入力画面。架空の問い合わせ本文を入力した状態。",
-    label: "①問い合わせ入力画面",
+    src: "/images/support-r3-01-input.png",
+    width: 1280,
+    height: 1600,
+    alt: "①問い合わせ入力画面。架空の問い合わせ本文を入力する欄と、デモ用の注意書きを表示。",
+    label: "①問い合わせの入力",
+    density: 1,
+    focus: 0,
+    caption: "① 問い合わせを入力",
   },
   {
-    src: "/images/support-02-ai.png",
-    width: 1536,
-    height: 2702,
-    alt: "②AI分析候補の画面。要約・分類・優先度・返信下書きが表示されている（Mock AIの出力）。",
-    label: "②AIによる要約・分類・返信案の表示画面",
+    src: "/images/support-r3-02-ai.png",
+    width: 1280,
+    height: 1847,
+    alt: "②AI分析候補の画面。ローカルLLMが出した要約・分類・優先度・返信案を表示している。",
+    label: "②AIによる要約・分類・優先度・返信案",
+    density: 1,
+    focus: 48,
+    caption: "② AIの候補",
   },
   {
-    src: "/images/support-03-confirm.png",
-    width: 1480,
-    height: 1942,
-    alt: "③人が内容を確認し、チェックを入れて保存する画面。",
-    label: "③人による確認と保存の画面",
+    src: "/images/support-r3-03-edit.png",
+    width: 1280,
+    height: 1905,
+    alt: "③人が分類・優先度・返信案を変更した画面。変更により確認チェックが外れ、保存ボタンが押せない状態。",
+    label: "③人による確認と編集（変更すると再確認が必要）",
+    density: 1,
+    focus: 50,
+    caption: "③ 人が確認・編集",
+  },
+  {
+    src: "/images/support-r3-04-stored.png",
+    width: 1280,
+    height: 1600,
+    alt: "④保存済み一覧の画面。確定した分類・優先度・返信案と、AI候補と異なる項目の元の値を併記している。",
+    label: "④保存済み一覧（AI候補との違いを併記）",
+    density: 1,
+    focus: 65,
+    caption: "④ 保存済み一覧",
   },
 ];
 
@@ -147,7 +169,7 @@ export default function Home() {
                   <span className="showcase-planes" aria-hidden="true"><i /><i /><i /></span>
                   <span className="showcase-arrow showcase-card-arrow" aria-hidden="true"><Arrow /></span>
                 </a>
-                <a href="#project-support" className="showcase-card showcase-support" aria-label="AI問い合わせ対応支援アプリの紹介へ（開発中）">
+                <a href="#project-support" className="showcase-card showcase-support" aria-label="AI問い合わせ対応支援アプリの紹介へ（ソース公開済み）">
                   <div className="showcase-card-top"><span>03 / AI · WORK SUPPORT</span></div>
                   <span className="showcase-support-name">AI問い合わせ<br />対応支援アプリ</span>
                   <span className="showcase-orbit" aria-hidden="true"><i /><i /></span>
@@ -209,13 +231,13 @@ export default function Home() {
 
                 <article className="secondary-project" id="project-support" aria-labelledby="support-title">
                   <div className="project-visual support-visual">
-                    <ScreenshotGallery basePath={basePath} screens={supportScreens} />
-                    <div className="support-screens-foot"><span>03 — MOCK MVP</span><span>クリックで拡大・スクロール表示（架空の問い合わせ）</span></div>
+                    <ScreenshotGallery basePath={basePath} screens={supportScreens} defaultFit />
+                    <div className="support-screens-foot"><span>03 — LOCAL LLM</span><span><span className="support-foot-wide">クリックで拡大・スクロール表示（架空の問い合わせ）</span><span className="support-foot-narrow">タップで拡大表示できます</span></span></div>
                   </div>
-                  <div className="secondary-info"><div className="project-status developing"><span className="status-dot" />試作版完成・開発中<span className="project-type">AI / WORK SUPPORT</span></div><h3 id="support-title">AI問い合わせ対応支援アプリ</h3><p className="ctx-category">問い合わせの整理から返信文の作成、確認・保存までを支援</p><p>問い合わせを入力すると、要約・分類・優先度・返信文の下書きを表示します。AIの提案を人間が確認・編集してから保存する仕組みを実装しています。</p><p>現在は模擬AIを使用したMock MVPが完成し、ブラウザでの動作確認まで実施しています。</p><p className="support-ai-note">※実際のAIサービスとの接続は今後実装予定です。</p><div className="secondary-bottom"><ul className="tags" aria-label="分類"><li>AI</li><li>業務支援</li></ul><span className="coming-soon">Mock MVP完成</span></div></div>
+                  <div className="secondary-info"><div className="project-status"><span className="status-dot" />ソース公開済み<span className="project-type">AI / WORK SUPPORT</span></div><h3 id="support-title">AI問い合わせ対応支援アプリ</h3><p className="ctx-category">問い合わせの整理から返信文の作成、確認・保存までを支援</p><p>問い合わせを入力すると、AIが要約・分類・優先度・返信案を作成します。AIの出力はあくまで候補で、人が確認・編集してからでないと保存できない仕組みです。</p><p>AIはこのパソコンの中で動くローカルLLM（Ollama）に接続しています。問い合わせの内容を外部のAIサービスへ送ることはなく、返信を送信する機能もありません。</p><p>保存した1件には、AIが提案した内容と人が確定した内容の両方を残します。あとから「AIが何を提案し、人がどこを直したか」を確認できます。</p><p className="support-ai-note">※デモ用のアプリです。実在の個人情報・機密情報は入力しないでください。掲載画面はすべて架空の問い合わせです。</p><div className="secondary-bottom"><ul className="tags" aria-label="使用技術"><li>FastAPI</li><li>React</li><li>ローカルLLM</li></ul><span className="coming-soon">ローカルLLM接続版</span></div><ExternalLink href={supportRepository} className="ctx-trial-link">GitHubで制作内容を見る <Arrow /></ExternalLink></div>
                 </article>
               </div>
-              <p className="work-note">02のビジュアルは紹介用のタイトルデザインです。03・04はそれぞれ実際の画面です（03はMock MVP・架空の問い合わせ内容、04は公開中の体験版・架空の回答例）。</p>
+              <p className="work-note">02のビジュアルは紹介用のタイトルデザインです。03・04はそれぞれ実際の画面です（03はローカルLLMに接続した状態・架空の問い合わせ内容、04は公開中の体験版・架空の回答例）。</p>
 
               <article className="featured-project" id="project-ctxent" aria-labelledby="ctxent-title">
                 <div className="project-visual ctxent-visual">
