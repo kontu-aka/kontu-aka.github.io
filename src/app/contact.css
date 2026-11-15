@@ -234,3 +234,75 @@
     font-size:14px;
   }
 }
+
+/* R5.2a: the free/paid boundary, stated next to the form. Written as two
+   labelled rows instead of a paragraph so the distinction between talking
+   about the work and doing the work can be taken in at a glance. New scoped
+   rules only; nothing above is modified. */
+.contact-terms {
+  display:grid;
+  gap:14px;
+  margin:26px 0 0;
+  padding:0;
+}
+
+.contact-term {
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#FFFFFF;
+  padding:16px 18px 17px;
+}
+
+.contact-term dt {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+}
+
+.contact-term-label {
+  font-size:15px;
+  font-weight:700;
+  line-height:1.6;
+  color:var(--ink);
+}
+
+.contact-term-price {
+  flex-shrink:0;
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:3px 10px;
+  background:#F0F4F6;
+  color:#5D6D78;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.5;
+  letter-spacing:.02em;
+}
+
+/* The same terracotta the form's own notice uses, so "無料" reads as a note
+   from the site rather than a badge borrowed from somewhere else. */
+.contact-term-free {
+  border-color:#E7D6C8;
+  background:#F7EFE9;
+  color:#92503F;
+}
+
+.contact-term dd {
+  margin:9px 0 0;
+  font-size:15px;
+  line-height:1.9;
+  color:var(--body-text);
+}
+
+@media(max-width:680px) {
+  .contact-terms {
+    margin-top:22px;
+  }
+  .contact-term {
+    padding:15px 16px 16px;
+  }
+  .contact-term dd {
+    font-size:15px;
+  }
+}

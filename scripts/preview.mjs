@@ -19,6 +19,7 @@ const contentTypes = {
   ".webp": "image/webp",
   ".ico": "image/x-icon",
   ".mp4": "video/mp4",
+  ".xml": "application/xml; charset=utf-8",
 };
 
 await stat(path.join(root, "index.html")).catch(() => {

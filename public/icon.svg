@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="こんつの制作室">
+  <!-- Geometry only, no text: an SVG favicon is drawn with whatever fonts the
+       viewer happens to have, so a glyph here would render differently on every
+       device. The three offset panels are the motif the site already uses for
+       CTX HANDOFF (.ctx-structure) and the hero showcase (.showcase-planes):
+       one piece of work handed on to the next. Site palette, unchanged.
+       Filled panels with a ground-coloured gap rather than outlines - at the
+       16px a browser tab actually draws, three nested outlines turn to mush. -->
+  <rect width="64" height="64" rx="14" fill="#2D3F4A"/>
+  <g stroke="#2D3F4A" stroke-width="3">
+    <rect x="11" y="27" width="27" height="26" rx="4" fill="#7C94A2"/>
+    <rect x="19" y="19" width="27" height="26" rx="4" fill="#C4D3DC"/>
+    <rect x="27" y="11" width="26" height="26" rx="4" fill="#B66C59"/>
+  </g>
+</svg>

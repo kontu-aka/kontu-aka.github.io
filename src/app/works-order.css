@@ -1,0 +1,89 @@
+/* R5.2: the works section is ordered for a visitor who is deciding whether to
+   ask for work - 01 企業向けCTX / 02 AI問い合わせ対応支援 / 03 政府調達データ分析 /
+   04 CTX HANDOFF - and every project now uses the same .featured-project card
+   instead of two large cards plus a 2-up row of small ones.
+
+   Nothing in this file redesigns a card. 01 and 03 were already .featured-project
+   and are untouched by it; the rules below only give 02 and 04 - which used to
+   sit in the .secondary-projects grid - the container-level box they need in
+   their new parent (a definite height for 02's gallery, a text column with the
+   featured padding). Delete this file and put the two articles back in a
+   .secondary-projects wrapper to get the previous layout exactly.
+
+   Loaded last, so it outranks the equal-specificity rules it replaces. */
+
+/* Cards used to be spaced by .secondary-projects' own margin-top. Four
+   siblings need the gap between themselves. */
+.featured-project + .featured-project {
+  margin-top: 32px;
+}
+
+/* The text column of 02 and 04. .secondary-info keeps its own typography
+   (24px headings, 16px body) - only the box changes, from "below the visual"
+   to "the right-hand column". */
+.featured-project > .secondary-info {
+  align-self: center;
+  padding: 36px 36px 30px;
+}
+
+/* 04 - CTX HANDOFF. The visual is drawn entirely from absolutely positioned
+   text and borders, so it has no content height of its own; 300px was given to
+   it by .secondary-project .project-visual, which no longer matches. height:auto
+   lets the grid stretch it to the text column (the wordmark stays pinned to the
+   top, the caption to the bottom, as before) and min-height keeps it from
+   collapsing when it is the only thing in its row on a narrow screen. */
+.featured-project > .project-visual.ctx-visual {
+  height: auto;
+  min-height: 300px;
+}
+
+/* 02 - AI inquiry support. Same flex column and padding the card has always
+   had; the fixed 420px height is replaced by tiles with a fixed aspect ratio.
+   The old height made the crop depend on how wide the card happened to be -
+   fine at one width, a thin horizontal band at another - and the card is now
+   rendered at several widths. A tile that keeps its shape keeps the same part
+   of each screenshot visible everywhere, which is what the 2x2 layout was
+   approved for. align-self:start matches 01's gallery: the column ends where
+   its own content ends instead of padding out to the text. */
+.featured-project > .project-visual.support-visual {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  height: auto;
+  padding: 16px 16px 0;
+}
+
+.featured-project > .support-visual .support-screens {
+  grid-template-rows: auto auto;
+  flex: none;
+}
+
+/* ~0.91 wide-to-tall. The screenshots are 0.67-0.80, so object-fit:cover trims
+   a little from the sides and keeps most of the height - the band each `focus`
+   value was chosen for. */
+.featured-project > .support-visual .support-screen {
+  aspect-ratio: 1 / 1.1;
+}
+
+@media (max-width: 800px) {
+  .featured-project > .secondary-info {
+    padding: 28px 30px;
+  }
+}
+
+@media (max-width: 520px) {
+  .featured-project + .featured-project {
+    margin-top: 24px;
+  }
+  .featured-project > .secondary-info {
+    padding: 24px 22px;
+  }
+  .featured-project > .project-visual.ctx-visual {
+    min-height: 245px;
+  }
+  /* Two tiles across a phone are narrow; a little less height each keeps the
+     gallery from pushing the card's text off the first screenful. */
+  .featured-project > .support-visual .support-screen {
+    aspect-ratio: 1 / 1;
+  }
+}

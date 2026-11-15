@@ -141,7 +141,7 @@ export default function Home() {
             <div className="hero-copy">
               <p className="eyebrow hero-eyebrow"><span className="live-dot" />INDEPENDENT / PORTFOLIO</p>
               <h1 id="hero-title">アイデアを、<br /><span>使えるかたちに。</span></h1>
-              <p className="hero-description">AIで、日々の仕事を少しラクに。<br />身近な困りごとから、業務改善ツールをつくっています。</p>
+              <p className="hero-description">AIで、日々の仕事を少しラクに。<br />AI導入前の確認事項の整理、問い合わせ対応の下書き、公開データの収集・比較。<br />身近な困りごとから、業務改善ツールをつくっています。</p>
               <div className="hero-actions">
                 <a href="#works" className="button button-lime">制作実績を見る <span aria-hidden="true">↓</span></a>
                 <a href="#contact" className="button button-quiet">お仕事のご相談はこちら <span aria-hidden="true">→</span></a>
@@ -152,8 +152,20 @@ export default function Home() {
               <div className="showcase-heading"><span>SELECTED PROJECTS</span><span>01 — 04</span></div>
               <div className="showcase-stack">
                 <a href="#project-ctxent" className="showcase-card showcase-ctxent" aria-label="企業向けCTXの紹介へ（無料体験版公開中）">
-                  <div className="showcase-card-top"><span>04 / AI · ENTERPRISE</span></div>
+                  <div className="showcase-card-top"><span>01 / AI · ENTERPRISE</span></div>
                   <span className="showcase-ctxent-name">企業向けCTX</span>
+                  <span className="showcase-arrow showcase-card-arrow" aria-hidden="true"><Arrow /></span>
+                </a>
+                <a href="#project-support" className="showcase-card showcase-support" aria-label="AI問い合わせ対応支援アプリの紹介へ（ソース公開済み）">
+                  <div className="showcase-card-top"><span>02 / AI · WORK SUPPORT</span></div>
+                  <span className="showcase-support-name">AI問い合わせ<br />対応支援アプリ</span>
+                  <span className="showcase-orbit" aria-hidden="true"><i /><i /></span>
+                  <span className="showcase-arrow showcase-card-arrow" aria-hidden="true"><Arrow /></span>
+                </a>
+                <a href="#project-ctx" className="showcase-card showcase-ctx" aria-label="CTX HANDOFFの紹介へ（無料公開版：公開中）">
+                  <div className="showcase-card-top"><span>04 / AI · HANDOFF</span></div>
+                  <span className="showcase-ctx-name">CTX<span>HANDOFF<span className="showcase-period">.</span></span></span>
+                  <span className="showcase-planes" aria-hidden="true"><i /><i /><i /></span>
                   <span className="showcase-arrow showcase-card-arrow" aria-hidden="true"><Arrow /></span>
                 </a>
                 <a href="#project-procurement" className="showcase-card showcase-procurement" aria-label="政府調達データ分析ツールの紹介へ">
@@ -162,18 +174,6 @@ export default function Home() {
                     <Image src={`${basePath}/images/procurement-overview.jpg`} width={1280} height={720} alt="政府調達データ分析ツールの実画面。取得日時、案件件数などを表示。2026年10月4日の保存データ。" unoptimized priority />
                   </div>
                   <div className="showcase-caption"><span className="showcase-name">政府調達データ分析ツール</span><span className="showcase-arrow" aria-hidden="true"><Arrow /></span></div>
-                </a>
-                <a href="#project-ctx" className="showcase-card showcase-ctx" aria-label="CTX HANDOFFの紹介へ（無料公開版：公開中）">
-                  <div className="showcase-card-top"><span>02 / AI · HANDOFF</span></div>
-                  <span className="showcase-ctx-name">CTX<span>HANDOFF<span className="showcase-period">.</span></span></span>
-                  <span className="showcase-planes" aria-hidden="true"><i /><i /><i /></span>
-                  <span className="showcase-arrow showcase-card-arrow" aria-hidden="true"><Arrow /></span>
-                </a>
-                <a href="#project-support" className="showcase-card showcase-support" aria-label="AI問い合わせ対応支援アプリの紹介へ（ソース公開済み）">
-                  <div className="showcase-card-top"><span>03 / AI · WORK SUPPORT</span></div>
-                  <span className="showcase-support-name">AI問い合わせ<br />対応支援アプリ</span>
-                  <span className="showcase-orbit" aria-hidden="true"><i /><i /></span>
-                  <span className="showcase-arrow showcase-card-arrow" aria-hidden="true"><Arrow /></span>
                 </a>
               </div>
             </div>
@@ -186,9 +186,48 @@ export default function Home() {
               <div className="section-top"><p className="eyebrow section-kicker">01 / SELECTED WORKS</p><span className="section-aside">公開したもの、いまつくっているもの。</span></div>
               <div className="works-heading"><h2 id="works-title">手を動かして、<br className="mobile-only" />かたちにしたもの。</h2><span className="work-count">04<span>PROJECTS</span></span></div>
 
+              <article className="featured-project" id="project-ctxent" aria-labelledby="ctxent-title">
+                <div className="project-visual ctxent-visual">
+                  <ScreenshotGallery basePath={basePath} screens={ctxentScreens} />
+                  <div className="support-screens-foot"><span>01 — ENTERPRISE AI</span><span>クリックで拡大・スクロール表示（公開中の体験版・架空の回答例）</span></div>
+                  <CtxentCta className="ctxent-cta-group ctxent-cta-desktop" />
+                </div>
+                <div className="project-info">
+                  <div className="project-status"><span className="status-dot" />無料体験版公開中・開発継続中<span className="project-type">AI / ENTERPRISE</span></div>
+                  <p className="project-en">Enterprise CTX</p>
+                  <h3 id="ctxent-title">企業のAI導入を、<br />安心して進めるために。</h3>
+                  <p className="project-name">企業向けCTX</p>
+                  <CtxentCta className="ctxent-cta-group ctxent-cta-mobile" />
+                  <p className="project-description">「AIツールを業務で使いたいが、どこまで任せてよいか、どの情報を入力してよいかが決まっていない」。そのまま進める前に、確認しておきたいリスクと運用ルールを整理するための無料診断ツールです。CodexやClaude CodeなどのAIツールの導入を想定し、9つのテーマに沿って回答すると、診断結果・改善提案・改善内容のまとめを確認できます。専門知識がなくても、自社のAI導入について考え始められるように設計しています。</p>
+                  <p className="project-note">※現在は診断体験版です。実際のアクセス制御や情報漏えい防止を行う製品ではありません。</p>
+                  <ul className="tags" aria-label="分類"><li>AI導入診断</li><li>改善提案</li><li>無料体験版</li></ul>
+                  <a href="#contact" className="project-cta-secondary">導入のご相談・お問い合わせはこちら</a>
+                  <IntroVideo basePath={basePath} />
+                </div>
+              </article>
+
+              <article className="featured-project" id="project-support" aria-labelledby="support-title">
+                <div className="project-visual support-visual">
+                  <ScreenshotGallery basePath={basePath} screens={supportScreens} defaultFit />
+                  <div className="support-screens-foot"><span>02 — LOCAL LLM</span><span><span className="support-foot-wide">クリックで拡大・スクロール表示（架空の問い合わせ）</span><span className="support-foot-narrow">タップで拡大表示できます</span></span></div>
+                </div>
+                <div className="secondary-info">
+                  <div className="project-status"><span className="status-dot" />ソース公開済み<span className="project-type">AI / WORK SUPPORT</span></div>
+                  <h3 id="support-title">AI問い合わせ対応支援アプリ</h3>
+                  <p className="ctx-category">届いた問い合わせの仕分けと、返信文の下書きに時間を取られないために。</p>
+                  <p>問い合わせが届くたびに、内容を読んで分類し、優先度を決め、返信を一から書く。件数が増えるほど、この下ごしらえに時間が取られます。</p>
+                  <p>問い合わせを入力すると、AIが要約・分類・優先度・返信案を作成します。AIの出力はあくまで候補で、人が確認・編集してからでないと保存できない仕組みです。</p>
+                  <p>AIはこのパソコンの中で動くローカルLLM（Ollama）に接続しています。問い合わせの内容を外部のAIサービスへ送ることはなく、返信を送信する機能もありません。</p>
+                  <p>保存した1件には、AIが提案した内容と人が確定した内容の両方を残します。あとから「AIが何を提案し、人がどこを直したか」を確認できます。</p>
+                  <p className="support-ai-note">※デモ用のアプリです。実在の個人情報・機密情報は入力しないでください。掲載画面はすべて架空の問い合わせです。</p>
+                  <div className="secondary-bottom"><ul className="tags" aria-label="使用技術"><li>FastAPI</li><li>React</li><li>ローカルLLM</li></ul><span className="coming-soon">ローカルLLM接続版</span></div>
+                  <ExternalLink href={supportRepository} className="ctx-trial-link">GitHubで制作内容を見る <Arrow /></ExternalLink>
+                </div>
+              </article>
+
               <article className="featured-project" id="project-procurement" aria-labelledby="procurement-title">
                 <div className="project-visual procurement-visual">
-                  <span className="visual-index">01 — DATA TOOL</span>
+                  <span className="visual-index">03 — DATA TOOL</span>
                   <div className="project-screen"><Image src={`${basePath}/images/procurement-overview.jpg`} width={1280} height={720} alt="Gov IT Procurement Watchの公開資料にある実際のダッシュボード画面" unoptimized /></div>
                   <div className="visual-caption"><span>実際のアプリ画面</span><span>保存データ / 2026.10.04</span></div>
                 </div>
@@ -197,7 +236,7 @@ export default function Home() {
                   <p className="project-en">Gov IT Procurement Watch</p>
                   <h3 id="procurement-title">公開データを、<br />確認しやすい情報へ。</h3>
                   <p className="project-name">政府調達データ分析ツール</p>
-                  <p className="project-description">デジタル庁の公開調達一覧を保存し、前回との差分や現在の一覧を確認するツール。目視での確認を、取得・検証・比較・表示の流れにしています。</p>
+                  <p className="project-description">公開されている調達の一覧は件数が多く、「前回から何が変わったか」を目で追うには手間がかかります。デジタル庁の公開調達一覧を保存し、前回との差分や現在の一覧を確認するツールです。目視での確認を、取得・検証・比較・表示の流れにしています。</p>
                   <ul className="tags" aria-label="使用技術"><li>Python</li><li>Streamlit</li><li>データ可視化</li></ul>
                   <ExternalLink href={repository} className="project-cta">GitHubで制作内容を見る <Arrow /></ExternalLink>
                 </div>
@@ -207,65 +246,36 @@ export default function Home() {
                 </details>
               </article>
 
-              <div className="secondary-projects">
-                <article className="secondary-project" id="project-ctx" aria-labelledby="ctx-title">
-                  <div className="project-visual ctx-visual">
-                    <span className="visual-index">02 — AI / HANDOFF</span>
-                    <span className="ctx-wordmark" aria-hidden="true">CTX<span>HANDOFF<span className="type-period">.</span></span></span>
-                    <span className="ctx-structure" aria-hidden="true"><i /><i /><i /></span>
-                    <span className="cover-caption">CONTEXT / WORK / NEXT</span>
-                  </div>
-                  <div className="secondary-info">
-                    <div className="project-status"><span className="status-dot" />無料公開版：公開中<span className="project-type">AI / HANDOFF</span></div>
-                    <h3 id="ctx-title">CTX HANDOFF</h3>
-                    <p className="ctx-category">AIとの作業を、次のチャットへ引き継ぐ。</p>
-                    <p>決定事項・保留事項・次の作業をまとめ、別のAIや新しいチャットで作業を再開しやすくする仕組みです。</p>
-                    <p>複数のAIを使う方や、長いチャットでの説明の繰り返しに困っている方におすすめ。無料公開版はインストール不要のテンプレートです。</p>
-                    <div className="secondary-bottom">
-                      <ul className="tags" aria-label="分類"><li>無料テンプレート</li><li>引き継ぎ</li><li>複数AI</li></ul>
-                      <span className="coming-soon">シリーズの他ツールは開発中</span>
-                    </div>
-                    <ExternalLink href={ctxStarterKitRepository} className="ctx-trial-link">無料公開版を使ってみる（GitHub） <Arrow /></ExternalLink>
-                  </div>
-                </article>
-
-                <article className="secondary-project" id="project-support" aria-labelledby="support-title">
-                  <div className="project-visual support-visual">
-                    <ScreenshotGallery basePath={basePath} screens={supportScreens} defaultFit />
-                    <div className="support-screens-foot"><span>03 — LOCAL LLM</span><span><span className="support-foot-wide">クリックで拡大・スクロール表示（架空の問い合わせ）</span><span className="support-foot-narrow">タップで拡大表示できます</span></span></div>
-                  </div>
-                  <div className="secondary-info"><div className="project-status"><span className="status-dot" />ソース公開済み<span className="project-type">AI / WORK SUPPORT</span></div><h3 id="support-title">AI問い合わせ対応支援アプリ</h3><p className="ctx-category">問い合わせの整理から返信文の作成、確認・保存までを支援</p><p>問い合わせを入力すると、AIが要約・分類・優先度・返信案を作成します。AIの出力はあくまで候補で、人が確認・編集してからでないと保存できない仕組みです。</p><p>AIはこのパソコンの中で動くローカルLLM（Ollama）に接続しています。問い合わせの内容を外部のAIサービスへ送ることはなく、返信を送信する機能もありません。</p><p>保存した1件には、AIが提案した内容と人が確定した内容の両方を残します。あとから「AIが何を提案し、人がどこを直したか」を確認できます。</p><p className="support-ai-note">※デモ用のアプリです。実在の個人情報・機密情報は入力しないでください。掲載画面はすべて架空の問い合わせです。</p><div className="secondary-bottom"><ul className="tags" aria-label="使用技術"><li>FastAPI</li><li>React</li><li>ローカルLLM</li></ul><span className="coming-soon">ローカルLLM接続版</span></div><ExternalLink href={supportRepository} className="ctx-trial-link">GitHubで制作内容を見る <Arrow /></ExternalLink></div>
-                </article>
-              </div>
-              <p className="work-note">02のビジュアルは紹介用のタイトルデザインです。03・04はそれぞれ実際の画面です（03はローカルLLMに接続した状態・架空の問い合わせ内容、04は公開中の体験版・架空の回答例）。</p>
-
-              <article className="featured-project" id="project-ctxent" aria-labelledby="ctxent-title">
-                <div className="project-visual ctxent-visual">
-                  <ScreenshotGallery basePath={basePath} screens={ctxentScreens} />
-                  <div className="support-screens-foot"><span>04 — ENTERPRISE AI</span><span>クリックで拡大・スクロール表示（公開中の体験版・架空の回答例）</span></div>
-                  <CtxentCta className="ctxent-cta-group ctxent-cta-desktop" />
+              <article className="featured-project" id="project-ctx" aria-labelledby="ctx-title">
+                <div className="project-visual ctx-visual">
+                  <span className="visual-index">04 — AI / HANDOFF</span>
+                  <span className="ctx-wordmark" aria-hidden="true">CTX<span>HANDOFF<span className="type-period">.</span></span></span>
+                  <span className="ctx-structure" aria-hidden="true"><i /><i /><i /></span>
+                  <span className="cover-caption">CONTEXT / WORK / NEXT</span>
                 </div>
-                <div className="project-info">
-                  <div className="project-status"><span className="status-dot" />無料体験版公開中・開発継続中<span className="project-type">AI / ENTERPRISE</span></div>
-                  <p className="project-en">Enterprise CTX</p>
-                  <h3 id="ctxent-title">企業のAI導入を、<br />安心して進めるために。</h3>
-                  <p className="project-name">企業向けCTX</p>
-                  <CtxentCta className="ctxent-cta-group ctxent-cta-mobile" />
-                  <p className="project-description">CodexやClaude CodeなどのAIツールを企業で導入する際に、事前に確認しておきたいリスクや運用ルールを整理する無料診断ツールです。9つのテーマに沿って回答すると、診断結果・改善提案・改善内容のまとめを確認できます。専門知識がなくても、自社のAI導入について考え始められるように設計しています。</p>
-                  <p className="project-note">※現在は診断体験版です。実際のアクセス制御や情報漏えい防止を行う製品ではありません。</p>
-                  <ul className="tags" aria-label="分類"><li>AI導入診断</li><li>改善提案</li><li>無料体験版</li></ul>
-                  <a href="#contact" className="project-cta-secondary">導入のご相談・お問い合わせはこちら</a>
-                  <IntroVideo basePath={basePath} />
+                <div className="secondary-info">
+                  <div className="project-status"><span className="status-dot" />無料公開版：公開中<span className="project-type">AI / HANDOFF</span></div>
+                  <h3 id="ctx-title">CTX HANDOFF</h3>
+                  <p className="ctx-category">AIとの作業を、次のチャットへ引き継ぐ。</p>
+                  <p>長いチャットが続かなくなるたび、別のAIに移るたびに、同じ前提をもう一度説明する。複数のAIを使う方ほど、この説明のやり直しに時間がかかります。</p>
+                  <p>決定事項・保留事項・次の作業をまとめ、別のAIや新しいチャットで作業を再開しやすくする仕組みです。無料公開版はインストール不要のテンプレートです。</p>
+                  <div className="secondary-bottom">
+                    <ul className="tags" aria-label="分類"><li>無料テンプレート</li><li>引き継ぎ</li><li>複数AI</li></ul>
+                    <span className="coming-soon">シリーズの他ツールは開発中</span>
+                  </div>
+                  <ExternalLink href={ctxStarterKitRepository} className="ctx-trial-link">無料公開版を使ってみる（GitHub） <Arrow /></ExternalLink>
                 </div>
               </article>
+
+              <p className="work-note">04のビジュアルは紹介用のタイトルデザインです。01・02・03はそれぞれ実際の画面です（01は公開中の体験版・架空の回答例、02はローカルLLMに接続した状態・架空の問い合わせ内容、03は過去の保存データの表示）。</p>
             </div>
           </section>
 
           <section className="about-section" id="about" aria-labelledby="about-title">
             <div className="wrap">
               <div className="section-top"><p className="eyebrow">02 / ABOUT &amp; APPROACH</p><span className="about-signature">kontu-aka.</span></div>
-              <div className="about-grid"><div className="about-identity"><h2 id="about-title">小さく試して、<br />日々の仕事に<br /><span>役立つものへ。</span></h2><Image className="studio-logo" src={`${basePath}/images/kontu-studio-logo.png`} width={1448} height={1086} alt="こんつの制作室 / KONTU STUDIO のロゴ" unoptimized /></div><div className="about-text"><p className="about-lead">AIを使うことから、<br />使いやすい仕組みをつくることへ。</p><p>独学でAIを活用したツール制作に取り組んでいます。<br />身近な業務の困りごとを、使いやすい仕組みに変えることを目指しています。</p><p>情報を集める、整理する、見えるようにする。<br />日々の仕事を少しラクにするために、企画と試作を重ねています。</p><a className="about-contact-link" href="#contact">お問い合わせはこちら <span aria-hidden="true">→</span></a></div></div>
-              <div className="capabilities" aria-label="できること"><div><span className="capability-number">01</span><h3>情報を、整理する。</h3><p>情報収集、整理の効率化</p></div><div><span className="capability-number">02</span><h3>データを、見える形に。</h3><p>データの集計、可視化</p></div><div><span className="capability-number">03</span><h3>アイデアを、試す。</h3><p>AIを活用した業務支援ツールの試作</p></div></div>
+              <div className="about-grid"><div className="about-identity"><h2 id="about-title">小さく試して、<br />日々の仕事に<br /><span>役立つものへ。</span></h2><Image className="studio-logo" src={`${basePath}/images/kontu-studio-logo.png`} width={1448} height={1086} alt="こんつの制作室 / KONTU STUDIO のロゴ" unoptimized /></div><div className="about-text"><p className="about-lead">AIを使うことから、<br />使いやすい仕組みをつくることへ。</p><p>独学でAIを活用したツール制作に取り組んでいます。<br />身近な業務の困りごとを、使いやすい仕組みに変えることを目指しています。</p><p>情報を集める、整理する、見えるようにする。<br />日々の仕事を少しラクにするために、企画と試作を重ねています。</p><p>「この作業をAIで減らせないか」「AIを使い始める前に何を決めておくべきか」。<br />そうした段階からのご相談と、動く試作をつくるところまでをお受けしています。</p><a className="about-contact-link" href="#contact">お問い合わせはこちら <span aria-hidden="true">→</span></a></div></div>
+              <div className="capabilities" aria-label="ご相談いただけること"><div><span className="capability-number">01</span><h3>情報を、整理する。</h3><p>問い合わせや文書の要約・分類（AIの出力は人が確認）</p></div><div><span className="capability-number">02</span><h3>データを、見える形に。</h3><p>公開データの収集・比較・集計と可視化</p></div><div><span className="capability-number">03</span><h3>アイデアを、試す。</h3><p>AI活用の試作と、導入前に決めることの整理</p></div></div>
             </div>
           </section>
 
@@ -277,6 +287,19 @@ export default function Home() {
                 <p className="eyebrow section-kicker">04 / GET IN TOUCH</p>
                 <h2 id="contact-title">お問い合わせ</h2>
                 <p>お仕事のご相談、ご意見・ご感想など、お気軽にお寄せください。</p>
+                {/* Two rows rather than a paragraph: the line between talking
+                    about the work and doing the work is the thing a visitor
+                    needs to see before they write, not read for. */}
+                <dl className="contact-terms">
+                  <div className="contact-term">
+                    <dt><span className="contact-term-label">ご相談・お見積もり</span><span className="contact-term-price contact-term-free">無料</span></dt>
+                    <dd>「こんなことはできますか」「何から決めればよいですか」という段階からご相談いただけます。初回のみ・回数制限といった条件はありません。内容をうかがったうえでのお見積もりも無料です。</dd>
+                  </div>
+                  <div className="contact-term">
+                    <dt><span className="contact-term-label">調査・設計・制作</span><span className="contact-term-price">有料</span></dt>
+                    <dd>実際に手を動かす作業は有料です。着手前に金額をお伝えし、ご了承いただいてから始めます。ご了承をいただく前に費用が発生することはありません。</dd>
+                  </div>
+                </dl>
               </div>
               <div className="contact-form">
                 <ContactForm />

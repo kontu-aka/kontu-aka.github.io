@@ -3,6 +3,16 @@
 import { useForm } from "@formspree/react";
 
 const FORMSPREE_FORM_ID = "mqpenzan";
+/* R5.2: without method/action a browser that never runs the JS falls back to
+   the HTML default - a GET to the current URL - which writes every field the
+   visitor typed into the address bar (and from there into history, the
+   referrer and any proxy log). Naming Formspree's own endpoint and POST makes
+   that fallback a real submission to the same place the JS posts to, with the
+   values in the request body instead of the URL. The JS path is unchanged:
+   @formspree/react's handleSubmit calls preventDefault() on the event before
+   it reads the FormData, so these attributes are never acted on while the
+   script is alive. */
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
 
 type ContactFormValues = {
   name: string;
@@ -24,7 +34,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="contact-form-body" onSubmit={handleSubmit}>
+    <form className="contact-form-body" action={FORMSPREE_ENDPOINT} method="POST" onSubmit={handleSubmit}>
       <p className="contact-form-notice">
         <span className="status-dot" aria-hidden="true" />
         ご入力いただいた内容は、お問い合わせへの対応以外の目的には使用しません。送信にはフォーム送信サービス「Formspree」を利用しています。
